@@ -32,3 +32,17 @@ Proyek ini merupakan repositori praktikum Pemrograman Web berbasis *Outcome-Base
 Proyek dapat diakses secara lokal melalui:
 `http://localhost/pemweb-obe/`
 * **Status Proyek**: Dalam Pengembangan 
+
+Update fondasi proyek semester
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyek Semester - Pemrograman Web</title>
+</head>
+<body>
+    <h1>Selamat Datang di Proyek Semester</h1>
+    <p>Inisialisasi fondasi awal proyek web.</p>
+</body>
+</html>
