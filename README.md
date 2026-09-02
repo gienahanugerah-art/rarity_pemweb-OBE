@@ -39,3 +39,15 @@ Proyek dapat diakses secara lokal melalui:
 
 ## Update Modul 2
 Halaman beranda (index.html) telah memiliki struktur HTML5 semantik (header, nav, main, section, article, form, footer) dengan konten proyek individu **RiasKu** — direktori booking MUA di Tarakan dengan data MUA nyata (Yheen Makeup Artist, Aurell Sekar - MUA Tarakan Kaltara, dan Andi Siti Hajar Makeup & Gown). Halaman telah diuji dan mendukung navigasi keyboard.
+
+---
+
+## Fitur yang Sudah Selesai (Modul 2)
+* [x] Struktur HTML5 semantik: header, nav, main, 4 section, 3 article, footer
+* [x] Hierarchy heading logis (h1 → h2 → h3)
+* [x] Alt text deskriptif pada seluruh gambar
+* [x] Form booking dengan label yang terhubung ke input (for/id)
+* [x] Navigasi dapat diakses penuh menggunakan keyboard (Tab)
+* [x] Data MUA menggunakan referensi bisnis nyata di Tarakan
+* [ ] Styling CSS responsif (menyusul di Modul 3)
+* [ ] Backend PHP dan database (menyusul di Modul 9+)
