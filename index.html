@@ -3,10 +3,177 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Praktikum Pemrograman Web</title>
+  <meta name="description" content="RiasKu - Direktori dan Sistem Booking Jasa Make Up Artist (MUA) di Tarakan">
+  <title>RiasKu - Direktori &amp; Booking MUA Tarakan</title>
 </head>
 <body>
-  <h1>Praktikum Pemrograman Web</h1>
-  <p>Repository awal OBE.</p>
+
+  <header>
+    <a href="#main">Lewati ke konten utama</a>
+    <h1>RiasKu</h1>
+    <p>Direktori dan Booking Jasa Make Up Artist (MUA) Terpercaya di Tarakan</p>
+    <nav aria-label="Navigasi utama">
+      <a href="#tentang">Tentang</a>
+      <a href="#daftar-mua">Daftar MUA</a>
+      <a href="#fitur">Fitur Unggulan</a>
+      <a href="#cara-booking">Cara Booking</a>
+      <a href="#kontak">Booking Sekarang</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section id="tentang">
+      <h2>Tentang RiasKu</h2>
+      <p>
+        RiasKu adalah platform yang menghubungkan pelanggan dengan Make Up Artist
+        (MUA) terpilih di Tarakan. Setiap MUA yang terdaftar telah dikurasi oleh
+        admin, sehingga pelanggan dapat memilih dan memesan jadwal riasan dengan
+        lebih mudah dan terpercaya, lengkap dengan opsi sewa busana pendukung.
+      </p>
+      <p>
+        <em>Catatan: data MUA pada halaman ini digunakan untuk keperluan tugas
+        akademik Mata Kuliah Pemrograman Web dan merujuk pada akun publik di
+        Instagram sebagai referensi.</em>
+      </p>
+    </section>
+
+    <section id="daftar-mua">
+      <h2>Daftar MUA Mitra</h2>
+
+      <article>
+        <h3>Yheen Makeup Artist</h3>
+        <img src="images/mua-yheen.jpg" alt="Hasil riasan pengantin ala airbrush oleh Yheen Makeup Artist">
+        <p>Spesialisasi: Airbrush Wedding Makeup, Thai Makeup, Glam Makeup</p>
+        <p>Instagram: @yheen_makeupartis</p>
+        <p>Estimasi mulai dari Rp1.000.000 (hubungi untuk info harga pasti)</p>
+        <a href="#kontak">Booking MUA ini</a>
+      </article>
+
+      <article>
+        <h3>Aurell Sekar - MUA Tarakan Kaltara</h3>
+        <img src="images/mua-aurellsekar.jpg" alt="Hasil riasan oleh Aurell Sekar, MUA Tarakan Kaltara">
+        <p>Spesialisasi: Rias Wisuda &amp; Pesta, lulusan Cosmetology</p>
+        <p>Instagram: @aurellsekar</p>
+        <p>Estimasi mulai dari Rp350.000 (hubungi untuk info harga pasti)</p>
+        <a href="#kontak">Booking MUA ini</a>
+      </article>
+
+      <article>
+        <h3>Andi Siti Hajar Makeup &amp; Gown</h3>
+        <img src="images/mua-andisitihajar.jpg" alt="Hasil riasan dan koleksi gaun oleh Andi Siti Hajar Makeup">
+        <p>Spesialisasi: Rias Pengantin, Sewa Gaun/Kebaya</p>
+        <p>Instagram: @andisitihajar_makeup</p>
+        <p>Estimasi mulai dari Rp750.000 (hubungi untuk info harga pasti)</p>
+        <a href="#kontak">Booking MUA ini</a>
+      </article>
+    </section>
+
+    <section id="fitur">
+      <h2>Fitur Unggulan</h2>
+
+      <article>
+        <h3>Request Tipe Makeup</h3>
+        <p>
+          Saat booking, pelanggan dapat memilih tipe riasan yang diinginkan
+          (natural, bold, pengantin adat, dan lainnya) sebagai permintaan
+          langsung kepada MUA yang dipilih.
+        </p>
+      </article>
+
+      <article>
+        <h3>Ubah Jadwal (Reschedule)</h3>
+        <p>
+          Pelanggan dapat mengajukan perubahan tanggal booking. Permintaan ini
+          akan menunggu konfirmasi dari MUA terkait sebelum jadwal baru
+          dianggap final.
+        </p>
+      </article>
+
+      <article>
+        <h3>Bayar DP di Awal</h3>
+        <p>
+          Pelanggan dapat mengunggah bukti pembayaran DP setelah booking
+          dibuat. Admin akan memverifikasi pembayaran sebelum jadwal
+          dikonfirmasi penuh.
+        </p>
+      </article>
+    </section>
+
+    <section id="cara-booking">
+      <h2>Cara Booking</h2>
+      <ol>
+        <li>Pilih MUA sesuai kebutuhan dan budget dari daftar MUA mitra.</li>
+        <li>Isi form booking dengan tanggal, jenis acara, dan tipe makeup yang diinginkan.</li>
+        <li>Tambahkan sewa busana bila diperlukan.</li>
+        <li>Bayar DP dan unggah bukti pembayaran.</li>
+        <li>Admin akan memverifikasi dan mengonfirmasi jadwal ke pelanggan.</li>
+      </ol>
+    </section>
+
+    <section id="kontak">
+      <h2>Form Booking</h2>
+      <form>
+        <div>
+          <label for="nama">Nama Lengkap</label>
+          <input id="nama" name="nama" type="text" required>
+        </div>
+
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+
+        <div>
+          <label for="telepon">Nomor Telepon/WhatsApp</label>
+          <input id="telepon" name="telepon" type="tel" required>
+        </div>
+
+        <div>
+          <label for="pilih-mua">Pilih MUA</label>
+          <select id="pilih-mua" name="pilih_mua" required>
+            <option value="">-- Pilih MUA --</option>
+            <option value="yheen">Yheen Makeup Artist</option>
+            <option value="aurellsekar">Aurell Sekar - MUA Tarakan Kaltara</option>
+            <option value="andisitihajar">Andi Siti Hajar Makeup &amp; Gown</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="tipe-makeup">Tipe Makeup yang Diinginkan</label>
+          <select id="tipe-makeup" name="tipe_makeup" required>
+            <option value="">-- Pilih Tipe --</option>
+            <option value="natural">Natural</option>
+            <option value="bold">Bold/Glam</option>
+            <option value="pengantin-adat">Pengantin Adat</option>
+            <option value="lainnya">Lainnya (tulis di catatan)</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="tanggal-acara">Tanggal Acara</label>
+          <input id="tanggal-acara" name="tanggal_acara" type="date" required>
+        </div>
+
+        <div>
+          <label for="bukti-dp">Bukti Pembayaran DP</label>
+          <input id="bukti-dp" name="bukti_dp" type="file" accept="image/*,.pdf">
+        </div>
+
+        <div>
+          <label for="catatan">Catatan Tambahan</label>
+          <textarea id="catatan" name="catatan" rows="4"></textarea>
+        </div>
+
+        <button type="submit">Kirim Booking</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 RiasKu. Proyek individu Mata Kuliah Pemrograman Web.</p>
+  </footer>
+
 </body>
 </html>
