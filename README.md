@@ -46,3 +46,4 @@ Update fondasi proyek semester
     <p>Inisialisasi fondasi awal proyek web.</p>
 </body>
 </html>
+## Update Modul 2\nHalaman beranda sudah memiliki struktur HTML5 semantik dengan data MUA nyata di Tarakan.
