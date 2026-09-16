@@ -56,6 +56,7 @@ function ringkasanMUA({ nama, spesialisasi, hargaMulai, lokasi }) {
 console.log('--- Latihan 3: Ringkasan setiap MUA ---');
 try {
   daftarMUA.forEach(mua => console.log(ringkasanMUA(mua)));
+
 } catch (error) {
   console.error('Gagal membuat ringkasan:', error.message);
 }
