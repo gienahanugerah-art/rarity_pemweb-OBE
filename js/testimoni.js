@@ -22,7 +22,7 @@ const ringkasanTestimoni = ({ namaPelanggan, rating, komentar, tanggal }) =>
   `${namaPelanggan} memberi rating ${rating}/5 pada ${formatTanggal(tanggal)}: "${komentar}"`;
 
 try {
-  console.log('=== Data Testimoni RiasKu ===');
+  console.log('=== Data Testimoni Go Find Your MUA ===');
   console.table(daftarTestimoni);
   console.log('Testimoni rating tinggi (>=4):', testimoniRatingTinggi);
   console.log('Daftar nama pelanggan:', namaPelangganList);
