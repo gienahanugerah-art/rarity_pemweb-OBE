@@ -21,6 +21,7 @@
       <a href="#cara-booking">Cara Booking</a>
       <a href="#kontak">Booking Sekarang</a>
     </nav>
+    <button id="theme-button" type="button">Ganti Tema</button>
   </header>
 
   <main id="main">
@@ -42,35 +43,32 @@
 
     <img src="divider-pattern.svg " alt="" style="width: 100%; max-width: 72rem; display: block; margin: 1rem auto;">
 
-    <section id="daftar-mua">
+<section id="daftar-mua" aria-live="polite">
   <h2>Daftar MUA Mitra</h2>
 
-  <article>
-    <h3>Yheen Makeup Artist</h3>
-    <img src="mua-yheen.jpg" width="10%" height="10%" alt="Hasil riasan pengantin ala airbrush oleh Yheen Makeup Artist">
-    <p>Spesialisasi: Airbrush Wedding Makeup, Thai Makeup, Glam Makeup</p>
-    <p>Instagram: @yheen_makeupartis</p>
-    <p>Estimasi mulai dari Rp1.000.000 (hubungi untuk info harga pasti)</p>
-    <a href="#kontak">Booking MUA ini</a>
-  </article>
+  <div class="toolbar" aria-label="Filter MUA">
+    <button type="button" data-filter="Semua">Semua</button>
+    <button type="button" data-filter="Tersedia">Tersedia</button>
+    <button type="button" data-filter="Tidak Tersedia">Tidak Tersedia</button>
+  </div>
 
-  <article>
-    <h3>Aurell Sekar - MUA Tarakan Kaltara</h3>
-    <img src="mua-aurellsekar.jpg" width="10%" height="10%" alt="Hasil riasan oleh Aurell Sekar, MUA Tarakan Kaltara">
-    <p>Spesialisasi: Rias Wisuda &amp; Pesta, lulusan Cosmetology</p>
-    <p>Instagram: @aurellsekar</p>
-    <p>Estimasi mulai dari Rp350.000 (hubungi untuk info harga pasti)</p>
-    <a href="#kontak">Booking MUA ini</a>
-  </article>
+  <div>
+    <label for="search-mua">Cari MUA</label>
+    <input id="search-mua" type="search" placeholder="Ketik nama MUA...">
+  </div>
 
-  <article>
-    <h3>Andi Siti Hajar Makeup &amp; Gown</h3>
-    <img src="mua-andisitihajar.jpg" width="10%" height="10%" alt="Hasil riasan dan koleksi gaun oleh Andi Siti Hajar Makeup">
-    <p>Spesialisasi: Rias Pengantin, Sewa Gaun/Kebaya</p>
-    <p>Instagram: @andisitihajar_makeup</p>
-    <p>Estimasi mulai dari Rp750.000 (hubungi untuk info harga pasti)</p>
-    <a href="#kontak">Booking MUA ini</a>
-  </article>
+  <div>
+    <label for="limit-mua">Tampilkan maksimal</label>
+    <select id="limit-mua">
+      <option value="1">1 MUA</option>
+      <option value="2">2 MUA</option>
+      <option value="3">3 MUA (semua)</option>
+    </select>
+  </div>
+
+  <div id="mua-list"></div>
+
+  <div id="detail-mua" aria-live="polite"></div>
 </section>
 
     <section id="fitur">

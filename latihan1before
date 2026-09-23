@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Latihan 1 - Sebelum (Dominan Div)</title>
+</head>
+<body>
+
+  <div class="header">
+    <div class="judul">RiasKu</div>
+  </div>
+
+  <div class="testimoni">
+    <div class="judul-section">Testimoni Pelanggan</div>
+    <div class="daftar">
+      <div class="item">
+        <div class="pesan">"Riasannya bagus banget, tahan lama sampai malam!"</div>
+        <div class="nama">- Siti, Pelanggan Yheen Makeup Artist</div>
+      </div>
+      <div class="item">
+        <div class="pesan">"Prosesnya cepat dan hasilnya natural, cocok buat wisuda."</div>
+        <div class="nama">- Rani, Pelanggan Aurell Sekar</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div>&copy; 2026 RiasKu</div>
+  </div>
+
+</body>
+</html>

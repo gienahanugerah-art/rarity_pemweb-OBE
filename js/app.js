@@ -60,3 +60,117 @@ try {
 } catch (error) {
   console.error('Gagal membuat ringkasan:', error.message);
 }
+// ===================== MODUL 5: DOM, EVENT, WEB STORAGE =====================
+
+const muaListContainer = document.querySelector('#mua-list');
+const detailContainer = document.querySelector('#detail-mua');
+const filterButtons = document.querySelectorAll('[data-filter]');
+const searchInput = document.querySelector('#search-mua');
+const limitSelect = document.querySelector('#limit-mua');
+const themeButton = document.querySelector('#theme-button');
+
+// --- Render aman: createElement + textContent (BUKAN innerHTML) ---
+function renderMUA(list) {
+  muaListContainer.replaceChildren();
+
+  if (list.length === 0) {
+    const pesan = document.createElement('p');
+    pesan.textContent = 'MUA tidak ditemukan.';
+    muaListContainer.append(pesan);
+    return;
+  }
+
+  for (const mua of list) {
+    const article = document.createElement('article');
+
+    const title = document.createElement('h3');
+    title.textContent = mua.nama;
+
+    const info = document.createElement('p');
+    info.textContent = `${mua.spesialisasi} - mulai dari Rp${mua.hargaMulai.toLocaleString('id-ID')}`;
+
+    const statusInfo = document.createElement('p');
+    statusInfo.textContent = mua.tersedia ? 'Status: Tersedia' : 'Status: Tidak Tersedia';
+
+    const detailButton = document.createElement('button');
+    detailButton.type = 'button';
+    detailButton.textContent = 'Detail';
+    detailButton.dataset.detail = mua.id;
+
+    article.append(title, info, statusInfo, detailButton);
+    muaListContainer.append(article);
+  }
+}
+
+// --- Interaksi 1: Filter berdasarkan status tersedia ---
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    let hasil;
+
+    if (filter === 'Semua') {
+      hasil = daftarMUA;
+    } else if (filter === 'Tersedia') {
+      hasil = daftarMUA.filter(mua => mua.tersedia === true);
+    } else {
+      hasil = daftarMUA.filter(mua => mua.tersedia === false);
+    }
+
+    renderMUA(hasil);
+  });
+});
+
+// --- Latihan 1: Pencarian real-time berdasarkan nama ---
+searchInput.addEventListener('input', (event) => {
+  const keyword = event.target.value.toLowerCase();
+  const hasil = daftarMUA.filter(mua => mua.nama.toLowerCase().includes(keyword));
+  renderMUA(hasil);
+});
+
+// --- Interaksi 2 / Latihan 2: Tombol Detail dengan event delegation ---
+muaListContainer.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-detail]');
+  if (!button) return;
+
+  const mua = daftarMUA.find(data => data.id === Number(button.dataset.detail));
+  if (!mua) return;
+
+  detailContainer.replaceChildren();
+
+  const judul = document.createElement('h3');
+  judul.textContent = `Detail: ${mua.nama}`;
+
+  const spesialisasi = document.createElement('p');
+  spesialisasi.textContent = `Spesialisasi: ${mua.spesialisasi}`;
+
+  const lokasi = document.createElement('p');
+  lokasi.textContent = `Lokasi: ${mua.lokasi}`;
+
+  const harga = document.createElement('p');
+  harga.textContent = `Estimasi harga mulai dari Rp${mua.hargaMulai.toLocaleString('id-ID')}`;
+
+  detailContainer.append(judul, spesialisasi, lokasi, harga);
+});
+
+// --- Latihan 3: Simpan preferensi jumlah item ditampilkan ---
+const savedLimit = localStorage.getItem('limitMUA') ?? '3';
+limitSelect.value = savedLimit;
+
+limitSelect.addEventListener('change', () => {
+  localStorage.setItem('limitMUA', limitSelect.value);
+  renderMUA(daftarMUA.slice(0, Number(limitSelect.value)));
+});
+
+// --- Interaksi 3: Preferensi tema (Web Storage) ---
+const savedTheme = localStorage.getItem('theme') ?? 'light';
+document.documentElement.dataset.theme = savedTheme;
+
+themeButton.addEventListener('click', () => {
+  const currentTheme = document.documentElement.dataset.theme;
+  const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = nextTheme;
+  localStorage.setItem('theme', nextTheme);
+});
+
+// --- Render awal saat halaman dimuat (menghormati preferensi limit tersimpan) ---
+renderMUA(daftarMUA.slice(0, Number(savedLimit)));

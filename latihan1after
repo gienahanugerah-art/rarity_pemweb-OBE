@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Latihan 1 - Sesudah (HTML5 Semantik)</title>
+</head>
+<body>
+
+  <header>
+    <h1>RiasKu</h1>
+  </header>
+
+  <section aria-label="Testimoni Pelanggan">
+    <h2>Testimoni Pelanggan</h2>
+
+    <article>
+      <blockquote>
+        <p>"Riasannya bagus banget, tahan lama sampai malam!"</p>
+      </blockquote>
+      <p>&mdash; Siti, Pelanggan Yheen Makeup Artist</p>
+    </article>
+
+    <article>
+      <blockquote>
+        <p>"Prosesnya cepat dan hasilnya natural, cocok buat wisuda."</p>
+      </blockquote>
+      <p>&mdash; Rani, Pelanggan Aurell Sekar</p>
+    </article>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 RiasKu</p>
+  </footer>
+
+</body>
+</html>

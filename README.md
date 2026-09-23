@@ -51,3 +51,22 @@ Halaman beranda (index.html) telah memiliki struktur HTML5 semantik (header, nav
 * [x] Data MUA menggunakan referensi bisnis nyata di Tarakan
 * [ ] Styling CSS responsif (menyusul di Modul 3)
 * [ ] Backend PHP dan database (menyusul di Modul 9+)
+
+---
+
+## Dokumentasi Alur Event & State (Modul 5)
+
+**State yang digunakan:**
+- Filter aktif (Semua/Tersedia/Tidak Tersedia) — disimpan sementara di memori saat tombol filter diklik.
+- `theme` — preferensi light/dark, disimpan di localStorage.
+- `limitMUA` — jumlah maksimal kartu MUA yang ditampilkan, disimpan di localStorage.
+
+**Alur event:**
+1. User klik tombol filter → event `click` → data MUA disaring sesuai status → `renderMUA()` memperbarui tampilan.
+2. User mengetik di kotak pencarian → event `input` → data disaring berdasarkan nama → `renderMUA()` dipanggil ulang.
+3. User klik tombol "Detail" pada kartu → event delegation di container `#mua-list` → `closest('[data-detail]')` menemukan tombol yang diklik → detail MUA ditampilkan di `#detail-mua`.
+4. User mengubah dropdown "Tampilkan maksimal" → event `change` → pilihan disimpan ke localStorage → tampilan dirender ulang sesuai limit.
+5. User klik "Ganti Tema" → event `click` → tema di-toggle dan disimpan ke localStorage.
+6. Saat halaman di-reload, preferensi `theme` dan `limitMUA` diambil kembali dari localStorage sebelum render pertama, sehingga preferensi pengguna tetap konsisten.
+
+**Keamanan DOM:** seluruh rendering data menggunakan `createElement` dan `textContent`, bukan `innerHTML`, untuk mencegah risiko XSS dari data yang mungkin tidak tepercaya.
