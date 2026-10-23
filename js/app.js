@@ -181,6 +181,7 @@ const bookingForm = document.querySelector('#booking-form');
 const formStatus = document.querySelector('#form-status');
 
 const daftarMUAValid = ['yheen', 'aurellsekar', 'andisitihajar'];
+const daftarTipeValid = ['natural', 'bold', 'pengantin-adat', 'lainnya'];
 
 function validateBookingForm(data) {
   const errors = {};
@@ -224,9 +225,11 @@ function validateBookingForm(data) {
   }
 
   // Aturan 5: tipe makeup wajib dipilih
-  if (tipeMakeup.length === 0) {
-    errors.tipe_makeup = 'Pilih tipe makeup yang diinginkan.';
-  }
+  if (tipeMakeup.length === 0) {  
+  errors.tipe_makeup = 'Pilih tipe makeup yang diinginkan.';
+} else if (!daftarTipeValid.includes(tipeMakeup)) {  
+  errors.tipe_makeup = 'Tipe makeup yang dipilih tidak valid.';
+}
 
   // Aturan 6: tanggal acara wajib & tidak boleh sebelum hari ini (Latihan 1)
   if (tanggalAcara.length === 0) {
