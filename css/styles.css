@@ -236,3 +236,20 @@ footer img {
     grid-column: 1 / -1;
   }
 }
+/* Perbaikan hasil code review Modul 6 */
+.error {
+  color: #b00020;
+  font-weight: 600;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+[aria-invalid="true"] {
+  border: 2px solid #b00020;
+}
+/* Fokus keyboard */
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+}

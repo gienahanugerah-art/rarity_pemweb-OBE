@@ -174,3 +174,101 @@ themeButton.addEventListener('click', () => {
 
 // --- Render awal saat halaman dimuat (menghormati preferensi limit tersimpan) ---
 renderMUA(daftarMUA.slice(0, Number(savedLimit)));
+
+// ===================== MODUL 6: FORM & VALIDASI =====================
+
+const bookingForm = document.querySelector('#booking-form');
+const formStatus = document.querySelector('#form-status');
+
+const daftarMUAValid = ['yheen', 'aurellsekar', 'andisitihajar'];
+
+function validateBookingForm(data) {
+  const errors = {};
+
+  const nama = String(data.get('nama') ?? '').trim();
+  const email = String(data.get('email') ?? '').trim().toLowerCase();
+  const telepon = String(data.get('telepon') ?? '').trim();
+  const pilihMua = String(data.get('pilih_mua') ?? '');
+  const tipeMakeup = String(data.get('tipe_makeup') ?? '');
+  const tanggalAcara = String(data.get('tanggal_acara') ?? '');
+
+  // Aturan 1: nama minimal 3 karakter
+  if (nama.length === 0) {
+    errors.nama = 'Nama lengkap wajib diisi.';
+  } else if (nama.length < 3) {
+    errors.nama = 'Nama minimal 3 karakter.';
+  }
+
+  // Aturan 2: format email
+  if (email.length === 0) {
+    errors.email = 'Email wajib diisi.';
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    errors.email = 'Format email belum valid.';
+  }
+
+  // Aturan 3: nomor telepon minimal 10 digit angka
+  const teleponAngka = telepon.replace(/\D/g, '');
+  if (telepon.length === 0) {
+    errors.telepon = 'Nomor telepon wajib diisi.';
+  } else if (teleponAngka.length < 10) {
+    errors.telepon = 'Nomor telepon minimal 10 digit angka.';
+  }
+
+  // Aturan 4: pilih MUA wajib & harus dari daftar yang tersedia (Latihan 2)
+  if (pilihMua.length === 0) {
+    errors.pilih_mua = 'Pilih salah satu MUA.';
+  } else if (!daftarMUAValid.includes(pilihMua)) {
+    errors.pilih_mua = 'MUA yang dipilih tidak valid.';
+  }
+
+  // Aturan 5: tipe makeup wajib dipilih
+  if (tipeMakeup.length === 0) {
+    errors.tipe_makeup = 'Pilih tipe makeup yang diinginkan.';
+  }
+
+  // Aturan 6: tanggal acara wajib & tidak boleh sebelum hari ini (Latihan 1)
+  if (tanggalAcara.length === 0) {
+    errors.tanggal_acara = 'Tanggal acara wajib diisi.';
+  } else {
+    const hariIni = new Date();
+    hariIni.setHours(0, 0, 0, 0);
+    const tanggalDipilih = new Date(tanggalAcara);
+    if (tanggalDipilih < hariIni) {
+      errors.tanggal_acara = 'Tanggal acara tidak boleh sebelum hari ini.';
+    }
+  }
+
+  return errors;
+}
+
+if (bookingForm) {
+  bookingForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const data = new FormData(bookingForm);
+    const errors = validateBookingForm(data);
+
+    // Bersihkan error lama
+    bookingForm.querySelectorAll('.error').forEach(el => (el.textContent = ''));
+    bookingForm.querySelectorAll('[aria-invalid="true"]').forEach(el => el.removeAttribute('aria-invalid'));
+
+    if (Object.keys(errors).length > 0) {
+      for (const [field, message] of Object.entries(errors)) {
+        const errorEl = document.querySelector(`#error-${field.replace('_', '-')}`);
+        if (errorEl) errorEl.textContent = message;
+
+        const inputEl = bookingForm.elements[field];
+        if (inputEl) inputEl.setAttribute('aria-invalid', 'true');
+      }
+
+      const firstErrorField = Object.keys(errors)[0];
+      bookingForm.elements[firstErrorField]?.focus();
+
+      formStatus.textContent = `Periksa kembali data yang belum valid (${Object.keys(errors).length} field bermasalah).`;
+      return;
+    }
+
+    formStatus.textContent = 'Data valid dan siap dikirim. (Belum dikirim ke server karena backend belum dibuat - akan dilanjutkan di Modul 9+)';
+    console.log('Preview data booking:', Object.fromEntries(data.entries()));
+  });
+}

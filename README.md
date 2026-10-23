@@ -9,7 +9,7 @@
 ---
 
 ## Deskripsi Proyek
-Proyek ini merupakan repositori praktikum Pemrograman Web berbasis *Outcome-Based Education* (OBE) untuk pengembangan aplikasi **RiasKu** — sebuah platform direktori dan booking jasa Make Up Artist (MUA) di Tarakan. Proyek dikembangkan secara bertahap dari fondasi environment, struktur HTML5, hingga aplikasi full-stack.
+Proyek ini merupakan repositori praktikum Pemrograman Web berbasis *Outcome-Based Education* (OBE) untuk pengembangan aplikasi **GFYM** — sebuah platform direktori dan booking jasa Make Up Artist (MUA) di Tarakan. Proyek dikembangkan secara bertahap dari fondasi environment, struktur HTML5, hingga aplikasi full-stack.
 
 ---
 
@@ -38,7 +38,7 @@ Proyek dapat diakses secara lokal melalui:
 ---
 
 ## Update Modul 2
-Halaman beranda (index.html) telah memiliki struktur HTML5 semantik (header, nav, main, section, article, form, footer) dengan konten proyek individu **RiasKu** — direktori booking MUA di Tarakan dengan data MUA nyata (Yheen Makeup Artist, Aurell Sekar - MUA Tarakan Kaltara, dan Andi Siti Hajar Makeup & Gown). Halaman telah diuji dan mendukung navigasi keyboard.
+Halaman beranda (index.html) telah memiliki struktur HTML5 semantik (header, nav, main, section, article, form, footer) dengan konten proyek individu **GFYM** — direktori booking MUA di Tarakan dengan data MUA nyata (Yheen Makeup Artist, Aurell Sekar - MUA Tarakan Kaltara, dan Andi Siti Hajar Makeup & Gown). Halaman telah diuji dan mendukung navigasi keyboard.
 
 ---
 

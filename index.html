@@ -22,13 +22,6 @@
       <a href="#kontak">Booking Sekarang</a>
     </nav>
     <button id="theme-button" type="button">Ganti Tema</button>
-  </header>
-
-  <main id="main">
-
-    <section id="tentang">
-      <h2>Tentang Go Find Your MUA</h2>
-      <p>
         Go Find Your MUA adalah platform yang menghubungkan pelanggan dengan Make Up Artist
         (MUA) terpilih di Tarakan. Setiap MUA yang terdaftar telah dikurasi oleh
         admin, sehingga pelanggan dapat memilih MUA dengan
@@ -115,72 +108,78 @@
 
     <section id="kontak">
       <h2>Form Booking</h2>
-      <form>
-        <div>
-          <label for="nama">Nama Lengkap</label>
-          <input id="nama" name="nama" type="text" required>
-        </div>
+      <p><small>Field bertanda <strong>*</strong> wajib diisi.</small></p>
+ <form id="booking-form" novalidate>
+  <div>
+    <label for="nama">Nama Lengkap <span aria-hidden="true">*</span></label>
+    <input id="nama" name="nama" type="text" required aria-describedby="error-nama">
+    <small id="error-nama" class="error" aria-live="polite"></small>
+  </div>
 
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required>
-        </div>
+  <div>
+    <label for="email">Email <span aria-hidden="true">*</span></label>
+    <input id="email" name="email" type="email" required aria-describedby="error-email">
+    <small id="error-email" class="error" aria-live="polite"></small>
+  </div>
 
-        <div>
-          <label for="telepon">Nomor Telepon/WhatsApp</label>
-          <input id="telepon" name="telepon" type="tel" required>
-        </div>
+  <div>
+    <label for="telepon">Nomor Telepon/WhatsApp <span aria-hidden="true">*</span></label>
+    <input id="telepon" name="telepon" type="tel" required aria-describedby="error-telepon">
+    <small id="error-telepon" class="error" aria-live="polite"></small>
+  </div>
 
-        <div>
-          <label for="pilih-mua">Pilih MUA</label>
-          <option value="">-- Pilih MUA --</option>
-          <option value="yheen">Yheen Makeup Artist</option>
-          <option value="aurellsekar">Aurell Sekar - MUA Tarakan Kaltara</option>
-          <option value="andisitihajar">Andi Siti Hajar Makeup &amp; Gown</option>
-          <option value="wye">Wye Wedding Service</option>
-        </select>
-      </div>
+  <div>
+    <label for="pilih-mua">Pilih MUA <span aria-hidden="true">*</span></label>
+    <select id="pilih-mua" name="pilih_mua" required aria-describedby="error-pilih-mua">
+      <option value="">-- Pilih MUA --</option>
+      <option value="yheen">Yheen Makeup Artist</option>
+      <option value="aurellsekar">Aurell Sekar - MUA Tarakan Kaltara</option>
+      <option value="andisitihajar">Andi Siti Hajar Makeup &amp; Gown</option>
+    </select>
+    <small id="error-pilih-mua" class="error" aria-live="polite"></small>
+  </div>
 
-        <div>
-          <label for="tipe-makeup">Tipe Makeup yang Diinginkan</label>
-          <select id="tipe-makeup" name="tipe_makeup" required>
-            <option value="">-- Pilih Tipe --</option>
-            <option value="natural">Natural</option>
-            <option value="bold">Bold/Glam</option>
-            <option value="pengantin-adat">Pengantin Adat</option>
-            <option value="lainnya">Lainnya (tulis di catatan)</option>
-          </select>
-        </div>
+  <div>
+    <label for="tipe-makeup">Tipe Makeup yang Diinginkan <span aria-hidden="true">*</span></label>
+    <select id="tipe-makeup" name="tipe_makeup" required aria-describedby="error-tipe-makeup">
+      <option value="">-- Pilih Tipe --</option>
+      <option value="natural">Natural</option>
+      <option value="bold">Bold/Glam</option>
+      <option value="pengantin-adat">Pengantin Adat</option>
+      <option value="lainnya">Lainnya (tulis di catatan)</option>
+    </select>
+    <small id="error-tipe-makeup" class="error" aria-live="polite"></small>
+  </div>
 
-        <div>
-          <label for="tanggal-acara">Tanggal Acara</label>
-          <input id="tanggal-acara" name="tanggal_acara" type="date" required>
-        </div>
+  <div>
+    <label for="tanggal-acara">Tanggal Acara <span aria-hidden="true">*</span></label>
+    <input id="tanggal-acara" name="tanggal_acara" type="date" required aria-describedby="error-tanggal-acara">
+    <small id="error-tanggal-acara" class="error" aria-live="polite"></small>
+  </div>
 
-        <div>
-          <label for="bukti-dp">Bukti Pembayaran DP</label>
-          <input id="bukti-dp" name="bukti_dp" type="file" accept="image/*,.pdf">
-        </div>
+  <div>
+    <label for="bukti-dp">Bukti Pembayaran DP</label>
+    <input id="bukti-dp" name="bukti_dp" type="file" accept="image/*,.pdf">
+  </div>
 
-        <div>
-          <label for="catatan">Catatan Tambahan</label>
-          <textarea id="catatan" name="catatan" rows="4"></textarea>
-        </div>
+  <div>
+    <label for="catatan">Catatan Tambahan</label>
+    <textarea id="catatan" name="catatan" rows="4" maxlength="200"></textarea>
+  </div>
 
-        <button type="submit">Kirim Booking</button>
-      </form>
+  <p id="form-status" aria-live="polite"></p>
+
+  <button type="submit">Kirim Booking</button>
+</form>
     </section>
 
   </main>
 
   <footer>
     <a href="https://wa.me/6281234567890">
-    <img src="icon-whatsapp.png" alt="Hubungi Admin RiasKu via WhatsApp untuk Konsultasi">
+    <img src="icon-whatsapp.png" alt="Hubungi Admin Go Find Your MUA via WhatsApp untuk Konsultasi">
   </a>
     <p>&copy; 2026 Go Find Your MUA. Proyek individu Mata Kuliah Pemrograman Web.</p>
-  </footer>
-  <a href="https://wa.me/6281234567890">
-  <img src="images/icon-whatsapp.png" alt="Hubungi Admin RiasKu via WhatsApp untuk Konsultasi">
 </a>
 
 <script type="module" src="js/app.js"></script>
