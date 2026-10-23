@@ -208,11 +208,13 @@ function validateBookingForm(data) {
 
   // Aturan 3: nomor telepon minimal 10 digit angka
   const teleponAngka = telepon.replace(/\D/g, '');
-  if (telepon.length === 0) {
-    errors.telepon = 'Nomor telepon wajib diisi.';
-  } else if (teleponAngka.length < 10) {
-    errors.telepon = 'Nomor telepon minimal 10 digit angka.';
-  }
+  if (telepon.length === 0) {  
+  errors.telepon = 'Nomor telepon wajib diisi.';
+} else if (!/^[0-9+\-\s]+$/.test(telepon)) {  
+  errors.telepon = 'Nomor telepon hanya boleh berisi angka.';
+} else if (teleponAngka.length < 10) {  
+  errors.telepon = 'Nomor telepon minimal 10 digit angka.';
+}
 
   // Aturan 4: pilih MUA wajib & harus dari daftar yang tersedia (Latihan 2)
   if (pilihMua.length === 0) {
